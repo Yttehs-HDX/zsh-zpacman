@@ -1,0 +1,27 @@
+#compdef zpacman
+
+_zpacman() {
+  local -a _1st_commands
+  _1st_commands=(
+    'help:Show this help message'
+    'install:Install a plugin'
+    'uninstall:Uninstall a plugin'
+    'reload:Reload plugins'
+    'list:List all plugins'
+  )
+
+  local -a installed_plugins
+  installed_plugins=($(ls ~/.oh-my-zsh/plugins))
+
+  if (( CURRENT == 2 )); then
+    _describe -t _1st_commands 'zpacman command' _1st_commands
+  elif (( CURRENT == 3 )); then
+    if [[  $words[2] == 'install' ]]; then
+      _describe -t installed_plugins 'installed plugins' installed_plugins
+    elif [[ $words[2] == 'uninstall' ]]; then
+      _describe -t plugins 'installed plugins' plugins
+    fi
+  fi
+}
+
+_zpacman "$@"
