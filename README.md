@@ -9,5 +9,5 @@ oh-my-zsh plugin for [`ZPacman`](https://github.com/Yttehs-HDX/zpacman.git)
 ## Usage
 
 ```bash
-zpacman install zsh-zpacman https://github.com/Yttehs-HDX/zsh-zpacman
+zpacman install https://github.com/Yttehs-HDX/zsh-zpacman
 ```
