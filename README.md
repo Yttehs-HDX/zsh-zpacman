@@ -11,3 +11,7 @@ oh-my-zsh plugin for [`ZPacman`](https://github.com/Yttehs-HDX/zpacman.git)
 ```bash
 zpacman install https://github.com/Yttehs-HDX/zsh-zpacman
 ```
+
+## License
+
+MIT
