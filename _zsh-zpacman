@@ -22,7 +22,7 @@ _zpacman() {
     elif [[ $words[2] == 'uninstall' ]]; then
       _describe -t plugins 'installed plugins' plugins
     elif [[ $words[2] == 'info' ]]; then
-      _describe -t plugins 'installed_plugins' plugins
+      _describe -t installed_plugins 'installed_plugins' installed_plugins
     fi
   fi
 }
