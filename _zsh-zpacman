@@ -3,26 +3,34 @@
 _zpacman() {
   local -a _1st_commands
   _1st_commands=(
-    'help:Show this help message'
+    'help:Show help message'
     'install:Install a plugin'
     'uninstall:Uninstall a plugin'
-    'info:Get plugin information'
+    'info:Read plugin information'
     'reload:Reload plugins'
     'list:List all plugins'
   )
 
-  local -a installed_plugins
-  installed_plugins=($(ls ~/.oh-my-zsh/plugins))
+  local -a official_plugins
+  official_plugins=($(ls ~/.oh-my-zsh/plugins))
+
+  local -a all_plugins
+  all_plugins=("${official_plugins[@]}" "${plugins[@]}")
 
   if (( CURRENT == 2 )); then
     _describe -t _1st_commands 'zpacman command' _1st_commands
+
   elif (( CURRENT == 3 )); then
+
     if [[  $words[2] == 'install' ]]; then
-      _describe -t installed_plugins 'installed plugins' installed_plugins
+      _describe -t official_plugins 'official plugins' official_plugins
+
     elif [[ $words[2] == 'uninstall' ]]; then
       _describe -t plugins 'installed plugins' plugins
+
     elif [[ $words[2] == 'info' ]]; then
-      _describe -t installed_plugins 'installed_plugins' installed_plugins
+      _describe -t all_plugins 'all plugins' all_plugins
+
     fi
   fi
 }
